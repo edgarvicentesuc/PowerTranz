@@ -1,0 +1,19 @@
+{
+    "name": "vincsis/omnipay-powertranz",
+    "description": "PowerTranz Support for Omnipay Payment processing library",
+    "type": "library",
+    "require": {
+        "omnipay/common": "^3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Powertranz\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "vicente suc - PEOPLE APPS"
+        }
+    ]
+}
