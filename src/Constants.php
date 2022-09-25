@@ -19,5 +19,6 @@ class Constants
 
     const CONFIG_KEY_PWTCUR = 'facCurrencyList';
 
-    const CONFIG_BILLING_ADDRES_CODE = 'GT';
+    const CONFIG_BILLING_STATE_CODE = 'GT';
+    const CONFIG_COUNTRY_CURRENCY_CODE = '320';
 }
