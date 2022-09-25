@@ -200,23 +200,36 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function getTransactionId()
     {
         $transactionId = parent::getTransactionId();
-//        $orderNumberPrefix = $this->getOrderNumberPrefix();
+        $orderIdentifier = parent::getTransactionId();
+        $orderNumberPrefix = $this->getOrderNumberPrefix();
 //
 //        // generate a number random using microtime
         if (empty($transactionId) && $this->getOrderNumberAutoGen() === true) {
             $transactionId = $this->guidv4();
+            $orderIdentifier = $transactionId;
         }
 //
-//        //example TICKET-ASA-000000000001
-//        if (!empty($orderNumberPrefix) && !empty($transactionId))
-//            $transactionId = $orderNumberPrefix . "-" . $transactionId;
+        //example TICKET-ASA-000000000001
+        if (!empty($orderNumberPrefix) && !empty($transactionId))
+            $orderIdentifier = $orderNumberPrefix . "-" . $transactionId;
+
 
         $this->setTransactionId($transactionId);
+        $this->setOrderIdentifier($orderIdentifier);
         $this->setOrderNumberPrefix('');
 
         return $transactionId;
     }
 
+    public function setOrderIdentifier($value)
+    {
+        return $this->setParameter(Constants::GATEWAY_ORDER_IDENTIFIER, $value);
+    }
+
+    public function getOrderIdentifier()
+    {
+        return $this->getParameter(Constants::GATEWAY_ORDER_IDENTIFIER);
+    }
 
     public function setOrderNumberPrefix($value)
     {

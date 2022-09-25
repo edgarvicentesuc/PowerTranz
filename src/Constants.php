@@ -16,6 +16,7 @@ class Constants
     const AUTHORIZE_OPTION_3DS = 'ThreeDSecure';
     const GATEWAY_ORDER_IDENTIFIER_PREFIX = 'orderNumberPrefix';
     const GATEWAY_ORDER_IDENTIFIER_AUTOGEN = 'orderNumberAutoGen';
+    const GATEWAY_ORDER_IDENTIFIER = 'orderIdentifier';
 
     const CONFIG_KEY_PWTCUR = 'facCurrencyList';
 

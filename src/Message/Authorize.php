@@ -108,7 +108,7 @@ class Authorize extends AbstractRequest
         $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
 
 
-        $this->TransactionDetails[self::PARAM_ORDER_IDENTIFIER] = $this->getOrderNumberPrefix() . " " . $this->getTransactionId();
+        $this->TransactionDetails[self::PARAM_ORDER_IDENTIFIER] = $this->getOrderIdentifier();
         $this->TransactionDetails[self::PARAM_ADDRESS_MATCH] = "true";
 
         $this->validateTransactionDetails();
