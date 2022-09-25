@@ -9,8 +9,8 @@ class Constants
     const PLATFORM_PWT_UAT = 'https://staging.ptranz.com/api/spi/';
     const PLATFORM_PWT_PROD = 'https://tbd.ptranz.com/api/spi/';
 
-    const CONFIG_KEY_PWTID = '88804131';
-    const CONFIG_KEY_PWTPWD = 'YG4Cy18lgTMW5GjRq9NztMAygPVKgnGzYeWv6SKXISiz7Zq8uqMh2l1';
+    const CONFIG_KEY_PWTID = 'PWTId';
+    const CONFIG_KEY_PWTPWD = 'PWTpwd';
     const CONFIG_KEY_MERCHANT_RESPONSE_URL = 'merchantResponseURL';
 
     const AUTHORIZE_OPTION_3DS = 'ThreeDSecure';
