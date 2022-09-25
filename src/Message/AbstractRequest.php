@@ -55,12 +55,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         //  $this->createNewXMLDoc($data);
 
         print_r("<pre>");
-        print_r( "desde send data");
+        print_r($this->getPWTId() . "|" . $this->getPWTPwd());
         print_r("</pre>");
-//
 
         print_r("<pre>");
-        print_r( $this->data);
+        print_r($this->data);
         print_r("</pre>");
 //
 //        $httpResponse = $this->httpClient

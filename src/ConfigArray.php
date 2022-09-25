@@ -1,7 +1,7 @@
 <?php
 
 
-use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\PowerTranz\Message\AbstractRequest;
 use Omnipay\PowerTranz\Constants;
 
 return [
@@ -9,8 +9,8 @@ return [
      * Use cautiously for testing and debugging only.
      * Caching transaction requests will save credit card information within the XML request.
      */
-//    AbstractRequest::PARAM_CACHE_TRANSACTION => false,
-//    AbstractRequest::PARAM_CACHE_REQUEST => false,
+    AbstractRequest::PARAM_CACHE_TRANSACTION => false,
+    AbstractRequest::PARAM_CACHE_REQUEST => false,
 
     /*
      * These options can and should be overridden via the $gateway->set** methods.
