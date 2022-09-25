@@ -54,7 +54,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         //  $this->createNewXMLDoc($data);
 
-        print_r($data);
+        print_r($this->data);
 //
 //        $httpResponse = $this->httpClient
 //            ->request("POST", $this->getEndpoint() . $this->getMessageClassName(), [
