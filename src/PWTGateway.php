@@ -79,14 +79,6 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
      */
     public function authorize(array $options = []): \Omnipay\Common\Message\AbstractRequest
     {
-        // Additional transaction codes for AVS checks etc. (if required) can be set when configuring the gateway
-        // Default Transaction Code is 0
-        if (!array_key_exists('TransactionIdentifier', $options)) {
-            $options['TransactionIdentifier'] = new TransactionCode([TransactionCode::NONE]);
-        }
-
-
-
 
         return $this->createRequest("\Omnipay\PowerTranz\Message\Authorize3DS", $options);
     }
