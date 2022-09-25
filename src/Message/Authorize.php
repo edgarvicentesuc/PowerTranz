@@ -88,7 +88,7 @@ class Authorize extends AbstractRequest
         $this->setTransactionDetails();
         $this->setCardDetails();
         $this->setBillingDetails();
-        //$this->setThreedSecure();
+        $this->setThreedSecure();
 
         return $this->data;
     }
@@ -148,13 +148,13 @@ class Authorize extends AbstractRequest
     }
 
 
-//    protected function setThreedSecure()
-//    {
-//        $ThreedSecure = [];
-//        $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_WINDOWS_SIZE] = 4;
-//        $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR] = "01";
-//
-//        $this->data[self::MESSAGE_PART_EXTENDED_DATA][self::PARAM_EXTENDED_DATA_THREEDSECURE] = $ThreedSecure;
-//    }
+    protected function setThreedSecure()
+    {
+        $ThreedSecure = [];
+        $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_WINDOWS_SIZE] = 4;
+        $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR] = "01";
+
+        $this->data[self::PARAM_EXTENDED_DATA_THREEDSECURE] = $ThreedSecure;
+    }
 
 }
