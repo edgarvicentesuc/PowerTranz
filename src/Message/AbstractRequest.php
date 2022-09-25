@@ -60,22 +60,22 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         print_r("</pre>");
 
         print_r("<pre>");
-        print_r($this->data);
+        print_r(json_encode($this->data, JSON_PRETTY_PRINT));
         print_r("</pre>");
 
-//        $httpResponse = $this->httpClient
-//            ->request("POST", $this->getEndpoint() . "auth", [
-//                "Content-Type" => "application/json",
-//                "Host" => "staging.ptranz.com",
-//                "Accept" => "application/json",
-//                "PowerTranz-PowerTranzId" => $this->getPWTId(),
-//                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
-//            ], json_encode($this->data));
+        $httpResponse = $this->httpClient
+            ->request("POST", $this->getEndpoint() . "auth", [
+                "Content-Type" => "application/json",
+                "Host" => "staging.ptranz.com",
+                "Accept" => "application/json",
+                "PowerTranz-PowerTranzId" => $this->getPWTId(),
+                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
+            ], json_encode($this->data));
 //
 //
-//        print_r("<pre>");
-//        print_r($httpResponse);
-//        print_r("</pre>");
+        print_r("<pre>");
+        print_r($httpResponse);
+        print_r("</pre>");
 //
 //
 //        switch ($httpResponse->getStatusCode()) {
