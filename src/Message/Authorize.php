@@ -96,7 +96,7 @@ class Authorize extends AbstractRequest
     {
         $this->TransactionDetails[self::PARAM_TRANSACTION_IDENTIFIER] = $this->getTransactionId();
         $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
-        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrency();
+        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrencyNumeric();
         $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
         $this->TransactionDetails[self::PARAM_ADDRESS_MATCH] = "true";
 
