@@ -86,12 +86,21 @@ class Authorize extends AbstractRequest
     public function getData()
     {
         $this->setTransactionDetails();
-        $this->setCardDetails();
+      //  $this->setCardDetails();
         //$this->setBillingDetails();
 
         return $this->data;
     }
 
+    protected function setTransactionDetails()
+    {
+        $this->TransactionDetails[self::PARAM_TRANSACTION_IDENTIFIER] = $this->getTransactionId();
+        $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
+        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrency();
+        $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
+
+        //  $this->validateTransactionDetails();
+    }
 
     protected function setCardDetails()
     {
@@ -130,15 +139,6 @@ class Authorize extends AbstractRequest
         $this->data[self::MESSAGE_PART_BILLING_ADDRESS] = $BillingDetails;
     }
 
-    protected function setTransactionDetails()
-    {
-        $this->TransactionDetails[self::PARAM_TRANSACTION_IDENTIFIER] = $this->getTransactionId();
-        $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
-        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrency();
-        $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
-
-        $this->validateTransactionDetails();
-    }
 
     protected function validateTransactionDetails()
     {
