@@ -85,8 +85,12 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
             $options['TransactionIdentifier'] = new TransactionCode([TransactionCode::NONE]);
         }
 
-        // Non-3DS transactions.
-        return $this->createRequest("\Omnipay\FirstAtlanticCommerce\Message\Authorize3DS", $options);
+        print_r("<pre>");
+        print_r($options);
+        print_r("</pre>");
+
+
+        return $this->createRequest("\Omnipay\PowerTranz\Message\Authorize3DS", $options);
     }
 
 
