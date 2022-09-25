@@ -74,7 +74,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //
 //
         print_r("<pre>");
-        print_r($httpResponse);
+        print_r($httpResponse->getBody()->getContents());
         print_r("</pre>");
 //
 //
