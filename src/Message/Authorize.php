@@ -98,6 +98,7 @@ class Authorize extends AbstractRequest
         $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
         $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrency();
         $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
+        $this->TransactionDetails[self::PARAM_ADDRESS_MATCH] = "true";
 
         $this->validateTransactionDetails();
     }
@@ -129,8 +130,6 @@ class Authorize extends AbstractRequest
 
         $CreditCard = $this->getCard();
 
-        $BillingCountry = $CreditCard->getBillingCountry();
-
         $BillingDetails[self::PARAM_BILLING_ADDRESS_FIRSTNAME] = $CreditCard->getBillingFirstName();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_LASTNAME] = $CreditCard->getBillingLastName();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_ADDRESS1] = $CreditCard->getBillingAddress1();
@@ -141,6 +140,7 @@ class Authorize extends AbstractRequest
         $BillingDetails[self::PARAM_BILLING_ADDRESS_COUNTRY] = $CreditCard->getBillingCountry();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_EMAIL] = $CreditCard->getEmail();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_TELEPHONE] = $CreditCard->getBillingPhone();
+
         $this->data[self::MESSAGE_PART_BILLING_ADDRESS] = $BillingDetails;
     }
 

@@ -13,9 +13,7 @@ class Authorize3DS extends Authorize
         parent::getData();
    //     $this->applyMerchantResponseURL();
 
-        print_r("<pre>");
-        print_r( $this->data);
-        print_r("</pre>");
+
 
         return $this->data;
     }
