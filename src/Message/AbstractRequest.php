@@ -55,18 +55,18 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         //  $this->createNewXMLDoc($data);
 
         print_r("<pre>");
-        print_r($this->getPWTId() . "|" . $this->getPWTPwd());
+        print_r($this->getEndpoint() . $this->getMessageClassName());
         print_r("</pre>");
 
         print_r("<pre>");
         print_r($this->data);
         print_r("</pre>");
-//
+
 //        $httpResponse = $this->httpClient
 //            ->request("POST", $this->getEndpoint() . $this->getMessageClassName(), [
 //                "Content-Type" => "application/json",
 //                "Host" => "staging.ptranz.com",
-//                "Accept" => "YG4Cy18lgTMW5GjRq9NztMAygPVKgnGzYeWv6SKXISiz7Zq8uqMh2l1",
+//                "Accept" => "application/json",
 //                "PowerTranz-PowerTranzId" => $this->getPWTId(),
 //                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
 //            ], $this->data);
