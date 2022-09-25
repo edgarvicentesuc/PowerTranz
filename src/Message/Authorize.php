@@ -87,7 +87,7 @@ class Authorize extends AbstractRequest
     {
         $this->setTransactionDetails();
         $this->setCardDetails();
-        //$this->setBillingDetails();
+        $this->setBillingDetails();
 
         return $this->data;
     }
