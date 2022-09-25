@@ -207,7 +207,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             $transactionId = $this->guidv4();
         }
 
+        //example TICKET-ASA-000000000001
+        if (!empty($orderNumberPrefix) && !empty($transactionId))
+            $transactionId = $orderNumberPrefix . "-" . $transactionId;
 
+        $this->setTransactionId($transactionId);
+        $this->setOrderNumberPrefix('');
 
         return $transactionId;
     }

@@ -108,13 +108,7 @@ class Authorize extends AbstractRequest
         $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
 
 
-        //example TICKET-ASA-000000000001
-        if (!empty($this->getOrderNumberPrefix()) && !empty($transactionId))
-            $this->TransactionDetails[self::PARAM_ORDER_IDENTIFIER] = $this->getOrderNumberPrefix() . " " . $this->getTransactionId();
-        else
-            $this->TransactionDetails[self::PARAM_ORDER_IDENTIFIER] = $this->getTransactionId();
-
-
+        $this->TransactionDetails[self::PARAM_ORDER_IDENTIFIER] = $this->getOrderNumberPrefix() . " " . $this->getTransactionId();
         $this->TransactionDetails[self::PARAM_ADDRESS_MATCH] = "true";
 
         $this->validateTransactionDetails();
