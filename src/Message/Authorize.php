@@ -138,7 +138,7 @@ class Authorize extends AbstractRequest
         $BillingDetails[self::PARAM_BILLING_ADDRESS_CITY] = $CreditCard->getBillingCity();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_ZIP] = $CreditCard->getBillingPostcode();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_TELEPHONE] = $CreditCard->getBillingPhone();
-        $BillingDetails[self::PARAM_BILLING_ADDRESS_EMAIL] = $CreditCard->getBillingEmail();
+        $BillingDetails[self::PARAM_BILLING_ADDRESS_EMAIL] = $CreditCard->getEmail();
 
 
         $this->data[self::MESSAGE_PART_BILLING_ADDRESS] = $BillingDetails;
