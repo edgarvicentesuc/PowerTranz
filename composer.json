@@ -4,8 +4,7 @@
   "type": "library",
   "require": {
     "php": "^7.2",
-    "omnipay/common": "^3.2.0",
-    "symfony/http-client": "5.4.12",
+    "omnipay/common": "^3",
     "league/iso3166": "~2.1.0"
   },
   "license": "MIT",
