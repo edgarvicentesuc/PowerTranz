@@ -11,7 +11,7 @@ class Authorize3DS extends Authorize
     public function getData()
     {
         parent::getData();
-        // $this->applyMerchantResponseURL();
+        $this->applyMerchantResponseURL();
 
         return $this->data;
     }
@@ -39,7 +39,7 @@ class Authorize3DS extends Authorize
 
     protected function applyMerchantResponseURL()
     {
-        $this->data[ucfirst(self::PARAM_EXTENDED_DATA_MERCHANT_URL)] = $this->getMerchantResponseURL();
+        $this->data[self::PARAM_EXTENDED_DATA_THREEDSECURE][ucfirst(self::PARAM_EXTENDED_DATA_MERCHANT_URL)] = $this->getMerchantResponseURL();
     }
 
 }
