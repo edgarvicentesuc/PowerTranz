@@ -203,9 +203,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        $orderNumberPrefix = $this->getOrderNumberPrefix();
 //
 //        // generate a number random using microtime
-//        if (empty($transactionId) && $this->getOrderNumberAutoGen() === true) {
-//            $transactionId = $this->guidv4();
-//        }
+        if (empty($transactionId) && $this->getOrderNumberAutoGen() === true) {
+            $transactionId = $this->guidv4();
+        }
 //
 //        //example TICKET-ASA-000000000001
 //        if (!empty($orderNumberPrefix) && !empty($transactionId))
