@@ -2,7 +2,7 @@
 
 namespace Omnipay\PowerTranz\Support;
 
-interface FACParametersInterface
+interface PWTParametersInterface
 {
     public function setPWTId($FACID);
 

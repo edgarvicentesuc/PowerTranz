@@ -6,11 +6,11 @@ namespace Omnipay\PowerTranz;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Http\ClientInterface;
-use Omnipay\PowerTranz\Support\FACParametersInterface;
+use Omnipay\PowerTranz\Support\PWTParametersInterface;
 use Omnipay\PowerTranz\Support\TransactionCode;
 
 
-class PWTGateway extends AbstractGateway implements FACParametersInterface
+class PWTGateway extends AbstractGateway implements PWTParametersInterface
 {
 
     public function __construct(ClientInterface $httpClient = null, HttpRequest $httpRequest = null)

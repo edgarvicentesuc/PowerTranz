@@ -5,11 +5,11 @@ namespace Omnipay\PowerTranz\Message;
 
 use Omnipay\PowerTranz\Constants;
 use Omnipay\PowerTranz\Exception\GatewayHTTPException;
-use Omnipay\PowerTranz\Support\FACParametersInterface;
+use Omnipay\PowerTranz\Support\PWTParametersInterface;
 use Omnipay\PowerTranz\Support\TransactionCode;
 
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
-    implements FACParametersInterface
+    implements PWTParametersInterface
 {
     const SIGNATURE_METHOD_SHA1 = 'SHA1';
     const PARAM_CACHE_TRANSACTION = 'cacheTransaction';
