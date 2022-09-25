@@ -39,7 +39,7 @@ class Authorize3DS extends Authorize
 
     protected function applyMerchantResponseURL()
     {
-        $this->data[self::PARAM_EXTENDED_DATA_THREEDSECURE][ucfirst(self::PARAM_EXTENDED_DATA_MERCHANT_URL)] = $this->getMerchantResponseURL();
+        $this->data[self::MESSAGE_PART_EXTENDED_DATA][ucfirst(self::PARAM_EXTENDED_DATA_MERCHANT_URL)] = $this->getMerchantResponseURL();
     }
 
 }

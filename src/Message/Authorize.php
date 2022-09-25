@@ -95,7 +95,7 @@ class Authorize extends AbstractRequest
         $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_WINDOWS_SIZE] = 4;
         $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR] = "01";
 
-        $this->data[self::PARAM_EXTENDED_DATA_THREEDSECURE] = $ThreedSecure;
+        $this->data[self::MESSAGE_PART_EXTENDED_DATA][self::PARAM_EXTENDED_DATA_THREEDSECURE] = $ThreedSecure;
 
         return $this->data;
     }
