@@ -3,9 +3,10 @@
   "description": "PowerTranz Support for Omnipay Payment processing library",
   "type": "library",
   "require": {
+    "php": "^7.2",
     "omnipay/common": "^3.2.0",
-    "symfony/http-foundation": "5.4.12",
-    "symfony/http-client": "5.4.12"
+    "symfony/http-client": "5.4.12",
+    "league/iso3166": "~2.1.0"
   },
   "license": "MIT",
   "autoload": {
@@ -13,7 +14,7 @@
       "Omnipay\\PowerTranz\\": "src/"
     }
   },
-  "minimum-stability" : "dev",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "vicente suc - PEOPLE APPS"
