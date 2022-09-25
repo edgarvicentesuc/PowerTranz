@@ -96,7 +96,7 @@ class Authorize extends AbstractRequest
     {
         $this->TransactionDetails[self::PARAM_TRANSACTION_IDENTIFIER] = $this->getTransactionId();
         $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
-        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrencyNumeric();
+        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = ($this->getCurrency() == "GTQ") ? "320" : "840";
         $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
         $this->TransactionDetails[self::PARAM_ADDRESS_MATCH] = "true";
 
@@ -137,7 +137,9 @@ class Authorize extends AbstractRequest
         $BillingDetails[self::PARAM_BILLING_ADDRESS_CITY] = $CreditCard->getBillingCity();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_STATE] = $CreditCard->getBillingState();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_ZIP] = $CreditCard->getBillingPostcode();
-        $BillingDetails[self::PARAM_BILLING_ADDRESS_COUNTRY] = $CreditCard->getBillingCountry();
+
+        $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = ($CreditCard->getBillingCountry() == "GTQ") ? "320" : "840";
+
         $BillingDetails[self::PARAM_BILLING_ADDRESS_EMAIL] = $CreditCard->getEmail();
         $BillingDetails[self::PARAM_BILLING_ADDRESS_TELEPHONE] = $CreditCard->getBillingPhone();
 
