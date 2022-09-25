@@ -86,7 +86,7 @@ class Authorize extends AbstractRequest
     public function getData()
     {
         $this->setTransactionDetails();
-       // $this->setCardDetails();
+         $this->setCardDetails();
         //$this->setBillingDetails();
 
         return $this->data;
@@ -135,8 +135,9 @@ class Authorize extends AbstractRequest
         $this->TransactionDetails[self::PARAM_TRANSACTION_IDENTIFIER] = $this->getTransactionId();
         $this->TransactionDetails[self::PARAM_TOTAL_AMOUNT] = $this->getAmount();
         $this->TransactionDetails[self::PARAM_CURRENCY_CODE] = $this->getCurrency();
-        $this->TransactionDetails[self::PARAM_THREEDSECURE] = $this->getCurrencyDecimalPlaces();
-        $this->validateTransactionDetails();
+        $this->TransactionDetails[self::PARAM_THREEDSECURE] = "true";
+
+        //  $this->validateTransactionDetails();
     }
 
     protected function validateTransactionDetails()
