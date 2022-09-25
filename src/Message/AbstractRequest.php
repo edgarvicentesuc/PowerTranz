@@ -203,7 +203,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        $orderNumberPrefix = $this->getOrderNumberPrefix();
 //
 //        // generate a number random using microtime
-        if (empty($transactionId) && $this->getOrderNumberAutoGen() === true) {
+        if (empty($transactionId) && $this->setIdTransactionAutoGen() === true) {
             $transactionId = $this->guidv4();
         }
 //
@@ -228,12 +228,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->getParameter(Constants::GATEWAY_ORDER_IDENTIFIER_PREFIX);
     }
 
-    public function setOrderNumberAutoGen($value)
+    public function setIdTransactionAutoGen($value)
     {
         return $this->setParameter(Constants::GATEWAY_ORDER_IDENTIFIER_AUTOGEN, $value);
     }
 
-    public function getOrderNumberAutoGen()
+    public function getIdTransactionAutoGen()
     {
         return $this->getParameter(Constants::GATEWAY_ORDER_IDENTIFIER_AUTOGEN);
     }
