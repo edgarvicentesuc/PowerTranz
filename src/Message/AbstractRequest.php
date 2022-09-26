@@ -77,31 +77,31 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         print_r($httpResponse->getBody()->getContents());
         print_r("</pre>");
 //
+
+        switch ($httpResponse->getStatusCode()) {
+            case "200":
+                $responseContent = $httpResponse->getBody()->getContents();
+                //  $responseClassName = __NAMESPACE__ . "\\" . $this->FACServices[$this->getMessageClassName()]["response"];
+
+//                $responseXML = new \SimpleXMLElement($responseContent);
+//                $responseXML->registerXPathNamespace("fac", Constants::PLATFORM_XML_NS);
+
+//                if ($this->getCacheTransaction()) {
+//                    if (!is_dir($this->TransactionCacheDir)) {
+//                        $cacheDirExists = mkdir($this->TransactionCacheDir);
+//                    } else {
+//                        $cacheDirExists = true;
+//                    }
 //
-//        switch ($httpResponse->getStatusCode()) {
-//            case "200":
-//                $responseContent = $httpResponse->getBody()->getContents();
-//                //  $responseClassName = __NAMESPACE__ . "\\" . $this->FACServices[$this->getMessageClassName()]["response"];
-//
-////                $responseXML = new \SimpleXMLElement($responseContent);
-////                $responseXML->registerXPathNamespace("fac", Constants::PLATFORM_XML_NS);
-//
-////                if ($this->getCacheTransaction()) {
-////                    if (!is_dir($this->TransactionCacheDir)) {
-////                        $cacheDirExists = mkdir($this->TransactionCacheDir);
-////                    } else {
-////                        $cacheDirExists = true;
-////                    }
-////
-////                    if ($cacheDirExists)
-////                        $responseXML->asXML($this->TransactionCacheDir . $this->getMessageClassName() . 'Response_' . $this->getTransactionId() . '.xml');
-////                }
-//
-//                return $responseContent;
-//
-//            default:
-//                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
-//        }
+//                    if ($cacheDirExists)
+//                        $responseXML->asXML($this->TransactionCacheDir . $this->getMessageClassName() . 'Response_' . $this->getTransactionId() . '.xml');
+//                }
+
+                return $responseContent;
+
+            default:
+                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
+        }
     }
 
     public function getMessageClassName()

@@ -34,40 +34,29 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
     }
 
 
-    /**
-     * Alias for setReturnUrl($url)
-     * @param string $url
-     * @return \Omnipay\Powertranz\PWTGateway
-     * @see \Omnipay\Powertranz\FACGateway::setReturnUrl();
-     *
-     */
     public function setMerchantResponseURL($url)
     {
         //$this->setReturnUrl($url);
         return $this->setParameter(Constants::CONFIG_KEY_MERCHANT_RESPONSE_URL, $url);
     }
 
-    /**
-     *
-     * @return string | NULL
-     */
+
     public function getMerchantResponseURL()
     {
         return $this->getParameter(Constants::CONFIG_KEY_MERCHANT_RESPONSE_URL);
     }
 
-    /**
-     * returnUrl will be used to capture the 3DS transaction response.
-     * It will also configure the MerchantResponseURL option of the gateway which is required by FAC.
-     * MerchantResponseURL can be set directly using setMerchantResponseURL($url), but using setReturnUrl($url) is preferred to maintain compatibility with Omnipay.
-     *
-     * @param string $url
-     * @return \Omnipay\Powertranz\PWTGateway
-     */
+
     public function setReturnUrl($url)
     {
-        $this->setMerchantResponseURL($url);
-        return $this->setParameter("returnUrl", $url);
+        //  $this->setMerchantResponseURL($url);
+        return $this->setParameter(Constants::CONFIG_KEY_WEBHOOK_URL, $url);
+    }
+
+    public function getReturnUrl()
+    {
+        //  $this->setMerchantResponseURL($url);
+        return $this->getParameter(Constants::CONFIG_KEY_WEBHOOK_URL);
     }
 
 
@@ -142,15 +131,6 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
     public function getFacCurrencyList()
     {
         return $this->getParameter(Constants::CONFIG_KEY_PWTCUR);
-    }
-
-    /**
-     *
-     * @return string | NULL
-     */
-    public function getReturnUrl()
-    {
-        return $this->getParameter(Constants::CONFIG_KEY_MERCHANT_RESPONSE_URL);
     }
 
 

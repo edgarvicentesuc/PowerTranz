@@ -7,6 +7,7 @@ class Authorize3DS extends Authorize
 {
 
     const PARAM_EXTENDED_DATA_MERCHANT_URL = "merchantResponseURL";
+    const PARAM_WEBHOOK_URL = "returnURL";
 
     public function getData()
     {
@@ -18,13 +19,12 @@ class Authorize3DS extends Authorize
 
     public function setReturnUrl($url)
     {
-        $this->setParameter("returnUrl", $url);
-        return $this->setMerchantResponseURL($url);
+        $this->setParameter(self::PARAM_WEBHOOK_URL, $url);
     }
 
     public function getReturnUrl()
     {
-        return $this->getMerchantResponseURL();
+        return $this->getParameter(self::PARAM_WEBHOOK_URL);
     }
 
     public function setMerchantResponseURL($url)
