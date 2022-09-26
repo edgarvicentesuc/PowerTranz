@@ -60,7 +60,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        print_r("</pre>");
 
         print_r("<pre>");
-        print_r(json_encode($this->data, JSON_PRETTY_PRINT));
+        print_r($this->data);
         print_r("</pre>");
 
         $httpResponse = $this->httpClient
@@ -72,7 +72,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                 "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
             ], json_encode($this->data));
 
-        print_r($httpResponse->getStatusCode());
+        print_r($httpResponse->getBody()->getContents());
 ////
 ////
 //        print_r("<pre>");
