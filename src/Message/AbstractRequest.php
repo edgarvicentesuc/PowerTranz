@@ -85,7 +85,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
                 $responseContent = $httpResponse->getBody()->getContents();
 
-                return $this->response = new Authorize3DSResponse($this, json_encode($responseContent));
+                return $this->response = new Authorize3DSResponse($this, $responseContent);
 
             default:
                 throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
