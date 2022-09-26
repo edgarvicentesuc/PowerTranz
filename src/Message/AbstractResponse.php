@@ -15,7 +15,7 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
 
     public function __construct(RequestInterface $request, $data)
     {
-        print_r(json_encode($data));
+        print_r($data);
 
         if ($this->isJson($data)) {
             $this->request = $request;
