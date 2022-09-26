@@ -43,9 +43,9 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
 
     protected function queryData($element, $parent = null)
     {
-        print_r($this->data);
+
         $json = json_decode($this->data);
-        return $json[$element];
+        return $json;
     }
 
     public function isJson($string)
