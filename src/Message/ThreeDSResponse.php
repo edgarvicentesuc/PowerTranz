@@ -1,6 +1,10 @@
 <?php
 
+namespace Omnipay\PowerTranz\Message;
+
+
 use Omnipay\Common\Message\AbstractResponse;
+
 
 class ThreeDSResponse extends AbstractResponse
 {
@@ -8,13 +12,13 @@ class ThreeDSResponse extends AbstractResponse
     protected $post;
     protected $JsonDoc;
 
-    public function __construct($FacPwd, array $post, $verifySignature = true)
-    {
-        if ($this->isJson($post)) {
-            $this->post = $post;
-            $this->FacPwd = $FacPwd;
-        }
-    }
+//    public function __construct($FacPwd, array $post, $verifySignature = true)
+//    {
+//        if ($this->isJson($post)) {
+//            $this->post = $post;
+//            $this->FacPwd = $FacPwd;
+//        }
+//    }
 
     public function getData()
     {
@@ -107,10 +111,10 @@ class ThreeDSResponse extends AbstractResponse
     }
 
 
-    public function isJson($string)
-    {
-        json_decode($string);
-        return json_last_error() === JSON_ERROR_NONE;
-    }
+//    public function isJson($string)
+//    {
+//        json_decode($string);
+//        return json_last_error() === JSON_ERROR_NONE;
+//    }
 
 }

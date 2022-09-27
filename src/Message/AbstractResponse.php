@@ -23,8 +23,6 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
 
             parent::__construct($request, $data);
 
-
-
         } else {
             throw new InvalidResponseData("Response data is not JSON VALID");
         }
@@ -45,6 +43,21 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
         $json = json_decode($this->data);
         return $json->{$element};
     }
+
+
+//    protected function queryData($element, $parent = null, $main = null)
+//    {
+//        $json = json_decode($this->data);
+//
+//        if ($main != null && $parent != null && $main != null) {
+//            return $json->{$main}->{$parent}->{$element};
+//        } else if ($main == null && $parent != null && $main != null) {
+//            return $json->{$parent}->{$element};
+//        } else if ($main == null && $parent == null && $main != null) {
+//            return $json->{$element};
+//        }
+//    }
+
 
     public function isJson($string)
     {

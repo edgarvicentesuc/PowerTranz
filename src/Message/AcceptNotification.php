@@ -3,7 +3,7 @@
 namespace Omnipay\PowerTranz\Message;
 
 use Omnipay\Common\Message\NotificationInterface;
-use ThreeDSResponse;
+
 
 class AcceptNotification extends AbstractRequest implements NotificationInterface
 {
@@ -15,8 +15,7 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
 
     public function sendData($data)
     {
-        print_r($data['Response']);
-        //  return new ThreeDSResponse($this->getParameter("PWTPwd"), $data);
+        return new ThreeDSResponse($this, $data['Response']);
     }
 
     public function setPWTPwd($value)
