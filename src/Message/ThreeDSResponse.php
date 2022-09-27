@@ -102,9 +102,9 @@ class ThreeDSResponse extends AbstractResponse
 
         if ($main != null && $parent != null && $main != null) {
             return $json->{$main}->{$parent}->{$element};
-        } else if ($main == null && $parent != null && $main != null) {
+        } else if ($main == null && $parent != null && $element != null) {
             return $json->{$parent}->{$element};
-        } else if ($main == null && $parent == null && $main != null) {
+        } else if ($main == null && $parent == null && $element != null) {
             return $json->{$element};
         }
     }
