@@ -14,8 +14,8 @@ class Payment3DS extends AbstractRequest
 
     public function send()
     {
-        if ($this->isJson($_POST)) {
-            $this->JsonDoc = $_POST;
+        if ($this->isJson($_POST["Response"])) {
+            $this->JsonDoc = $_POST["Response"];
             return $this->sendData(array("getSpiToken" => $this->getSpiToken()));
         }
     }
