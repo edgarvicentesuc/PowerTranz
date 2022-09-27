@@ -23,8 +23,7 @@ abstract class AbstractResponse extends OmnipayAbstractResponse
 
             parent::__construct($request, $data);
 
-//            if (intval($this->queryData("ResponseCode")) === 1)
-//                $this->verifySignature();
+
 
         } else {
             throw new InvalidResponseData("Response data is not JSON VALID");
