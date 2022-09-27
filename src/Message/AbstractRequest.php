@@ -45,6 +45,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         switch ($httpResponse->getStatusCode()) {
             case "200":
                 $responseContent = $httpResponse->getBody()->getContents();
+
+                print_r($responseContent);
+
                 return $this->response = new Authorize3DSResponse($this, $responseContent);
             default:
                 throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());

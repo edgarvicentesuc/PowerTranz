@@ -18,6 +18,7 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
         return new ThreeDSResponse($data['Response']);
     }
 
+
     public function setPWTPwd($value)
     {
         return $this->setParameter("FacPwd", $value);

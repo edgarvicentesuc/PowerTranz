@@ -15,11 +15,12 @@ class Payment3DS extends AbstractRequest
         return $this->sendData($this->data);
     }
 
-    public function sendData($data)
-    {
-        print_r($data);
-        //return new ThreeDSResponse($data['Response']);
-    }
+
+//    public function sendData($data)
+//    {
+//        print_r($data);
+//        //return new ThreeDSResponse($data['Response']);
+//    }
 
 
     public function getData()
