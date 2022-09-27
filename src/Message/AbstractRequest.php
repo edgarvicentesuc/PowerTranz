@@ -23,7 +23,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         "Authorize3DS" => [
             "api" => "auth",
         ],
-        "AcceptNotification" => [
+        "Payment3DS" => [
             "api" => "payment",
         ],
     ];
@@ -31,16 +31,6 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
-        //  $this->createNewXMLDoc($data);
-
-//        print_r("<pre>");
-//        print_r($this->getEndpoint() . $this->getMessageClassName());
-//        print_r("</pre>");
-
-        print_r("<pre>");
-        print_r($this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"]);
-        print_r("</pre>");
-
 
         $httpResponse = $this->httpClient
             ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [

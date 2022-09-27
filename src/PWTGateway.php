@@ -81,6 +81,15 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
     }
 
 
+    /**
+     * @param array $options
+     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\NotificationInterface
+     */
+    public function purchase($options)
+    {
+        return $this->createRequest("\Omnipay\PowerTranz\Message\Payment3DS", $options);
+    }
+
 
     public function setPWTId($PWTID)
     {
