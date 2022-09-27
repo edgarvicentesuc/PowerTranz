@@ -26,7 +26,7 @@ class ThreeDSResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        return ((intval($this->getResponseCode()) === 5) || (intval($this->getResponseCode()) === 2));
+        return ((intval($this->getResponseCode()) === 5) || (intval($this->getResponseCode()) === 2)) ? true : false;
     }
 
     public function getTransactionType()
