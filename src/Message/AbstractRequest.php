@@ -40,7 +40,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             print_r($this->getPWTId() . "<br>");
             print_r($this->getPWTPwd() . "<br>");
             print_r(json_encode($this->data) . "<br>");
-//            die();
+            die();
         }
 
 
