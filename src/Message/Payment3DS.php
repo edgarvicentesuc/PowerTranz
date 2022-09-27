@@ -13,7 +13,7 @@ class Payment3DS extends AbstractRequest
     public function send()
     {
 //        print_r("hola");
-        print_r("Token=" . $_POST);
+        print_r($_POST);
         return $this->sendData($_POST);
     }
 
