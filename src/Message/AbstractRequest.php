@@ -60,7 +60,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
                 //print_r($responseContent);
 
-                return $this->response = new $this->PWTServices[$this->getMessageClassName()]["response"]($this, $responseContent);
+                return $this->response = new Authorize3DSResponse($this, $responseContent);
 
             default:
                 throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
