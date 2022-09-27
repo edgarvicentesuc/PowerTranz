@@ -13,8 +13,8 @@ class Payment3DS extends AbstractRequest
     public function send()
     {
 //        print_r("hola");
-        print_r($this->data);
-        return $this->sendData($this->data);
+        print_r($this);
+        return $this->sendData($this);
     }
 
 
