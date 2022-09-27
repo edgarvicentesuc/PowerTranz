@@ -12,7 +12,7 @@ class ThreeDSResponse extends AbstractResponse
     protected $post;
     protected $JsonDoc;
 
-    public function __construct(array $post)
+    public function __construct($post)
     {
         if ($this->isJson($post)) {
             $this->JsonDoc = $post;
