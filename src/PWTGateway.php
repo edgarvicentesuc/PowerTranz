@@ -77,7 +77,7 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
      */
     public function acceptNotification(array $options = [])
     {
-        return $this->createRequest("\Omnipay\FirstAtlanticCommerce\Message\AcceptNotification", $options);
+        return $this->createRequest("\Omnipay\PowerTranz\Message\AcceptNotification", $options);
     }
 
 
