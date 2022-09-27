@@ -42,25 +42,23 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         print_r("</pre>");
 
 
-        return null;
+        $httpResponse = $this->httpClient
+            ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
+                "Content-Type" => "application/json",
+                "Host" => "staging.ptranz.com",
+                "Accept" => "application/json",
+                "PowerTranz-PowerTranzId" => $this->getPWTId(),
+                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
+            ], json_encode($this->data));
 
-//        $httpResponse = $this->httpClient
-//            ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
-//                "Content-Type" => "application/json",
-//                "Host" => "staging.ptranz.com",
-//                "Accept" => "application/json",
-//                "PowerTranz-PowerTranzId" => $this->getPWTId(),
-//                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
-//            ], json_encode($this->data));
-//
-//
-//        switch ($httpResponse->getStatusCode()) {
-//            case "200":
-//                $responseContent = $httpResponse->getBody()->getContents();
-//                return $this->response = new Authorize3DSResponse($this, $responseContent);
-//            default:
-//                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
-//        }
+
+        switch ($httpResponse->getStatusCode()) {
+            case "200":
+                $responseContent = $httpResponse->getBody()->getContents();
+                return $this->response = new Authorize3DSResponse($this, $responseContent);
+            default:
+                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
+        }
     }
 
     public function getMessageClassName()
