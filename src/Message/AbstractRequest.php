@@ -52,7 +52,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                     "Accept" => "application/json",
                     "PowerTranz-PowerTranzId" => $this->getPWTId(),
                     "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
-                ], $this->data);
+                ], json_encode($this->data));
 
             print_r($httpResponse->getStatusCode());
             die();
