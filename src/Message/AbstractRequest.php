@@ -44,18 +44,27 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        }
 
 
-        $httpResponse = $this->httpClient
-            ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
-                "Content-Type" => "application/json",
-                "Host" => "staging.ptranz.com",
-                "Accept" => "application/json",
-                "PowerTranz-PowerTranzId" => $this->getPWTId(),
-                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
-            ], json_encode($this->data));
-
         if ($this->getMessageClassName() == "Payment3DS") {
+            $httpResponse = $this->httpClient
+                ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
+                    "Content-Type" => "application/json",
+                    "Host" => "staging.ptranz.com",
+                    "Accept" => "application/json",
+                    "PowerTranz-PowerTranzId" => $this->getPWTId(),
+                    "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
+                ], $this->data);
+
             print_r($httpResponse->getStatusCode());
             die();
+        } else {
+            $httpResponse = $this->httpClient
+                ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
+                    "Content-Type" => "application/json",
+                    "Host" => "staging.ptranz.com",
+                    "Accept" => "application/json",
+                    "PowerTranz-PowerTranzId" => $this->getPWTId(),
+                    "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
+                ], json_encode($this->data));
         }
 
 
