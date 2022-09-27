@@ -87,8 +87,7 @@ class PWTGateway extends AbstractGateway implements PWTParametersInterface
      */
     public function purchase($options)
     {
-        print_r($options);
-        return $this->createRequest("\Omnipay\PowerTranz\Message\Payment3DS", $options);
+        return $this->createRequest("\Omnipay\PowerTranz\Message\Payment3DS", array("SpiToken" => $options));
     }
 
 
