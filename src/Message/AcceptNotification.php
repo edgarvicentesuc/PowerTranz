@@ -15,10 +15,11 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
     }
 
 
-//    public function sendData($data)
-//    {
-//       // return new ThreeDSResponse($this->getParameter("PWTPwd"), $data, ((!$this->getParameter("PWTPwd")) ? false : true));
-//    }
+    public function sendData($data)
+    {
+        print_r($_POST);
+       // return new ThreeDSResponse($this->getParameter("PWTPwd"), $data, ((!$this->getParameter("PWTPwd")) ? false : true));
+    }
 
     public function setPWTPwd($value)
     {
