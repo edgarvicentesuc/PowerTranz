@@ -75,7 +75,6 @@ class ThreeDSResponse extends AbstractResponse
         return $this->queryData("Eci", "ThreeDSecure", "RiskManagement");
     }
 
-
     public function getAuthenticationStatus()
     {
         return $this->queryData("AuthenticationStatus", "ThreeDSecure", "RiskManagement");
@@ -86,15 +85,22 @@ class ThreeDSResponse extends AbstractResponse
         return $this->queryData("CardholderInfo", "ThreeDSecure", "RiskManagement");
     }
 
-    public function getSpiToken()
+    public function getDsTransId()
     {
-        return $this->queryData("SpiToken");
+        return $this->queryData("DsTransId", "ThreeDSecure", "RiskManagement");
     }
 
     public function getOrderIdentifier()
     {
         return $this->queryData("OrderIdentifier");
     }
+
+
+    public function getSpiToken()
+    {
+        return $this->queryData("SpiToken");
+    }
+
 
     protected function queryData($element, $parent = null, $main = null)
     {
