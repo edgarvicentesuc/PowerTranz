@@ -33,8 +33,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
-        if ($this->getMessageClassName() == "Payment3DSResponse")
+        if ($this->getMessageClassName() == "Payment3DSResponse") {
             $this->data = $data;
+
+            print_r($this->data);
+            die();
+        }
+
 
         $httpResponse = $this->httpClient
             ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
