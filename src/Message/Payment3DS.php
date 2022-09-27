@@ -9,6 +9,8 @@ use Omnipay\PowerTranz\Support\TransactionCode;
 
 class Payment3DS extends AbstractRequest
 {
+    protected $JsonDoc;
+
 
     public function send()
     {
