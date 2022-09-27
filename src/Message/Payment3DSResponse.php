@@ -3,7 +3,9 @@
 namespace Omnipay\PowerTranz\Message;
 
 
-class Payment3DSResponse extends AbstractResponse
+use Omnipay\Common\Message\RedirectResponseInterface;
+
+class Payment3DSResponse extends AbstractResponse implements RedirectResponseInterface
 {
 
     protected $post;
