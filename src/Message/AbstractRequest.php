@@ -22,24 +22,17 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     protected $PWTServices = [
         "Authorize3DS" => [
             "api" => "auth",
+            "response" => "Authorize3DSResponse"
         ],
         "Payment3DS" => [
             "api" => "payment",
+            "response" => "Payment3DSResponse"
         ],
     ];
 
 
     public function sendData($data)
     {
-
-         print_r($data);
-        print_r($this->getMessageClassName() . "<br>");
-        if ("Payment3DS" === $this->getMessageClassName()) {
-            print_r("se muere<br>");
-            print_r($data);
-            die();
-        }
-
         $httpResponse = $this->httpClient
             ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
                 "Content-Type" => "application/json",
@@ -56,7 +49,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
                 print_r($responseContent);
 
-                return $this->response = new Authorize3DSResponse($this, $responseContent);
+                return $this->response = new $this->PWTServices[$this->getMessageClassName()]["response"]($this, $responseContent);
 
             default:
                 throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
