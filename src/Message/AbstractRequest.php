@@ -20,33 +20,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     protected $TransactionCacheDir = 'transactions/';
 
     protected $FACServices = [
-        "Authorize" => [
-            "request" => "auth",
-            "response" => "AuthorizeResponse"
-        ],
-        "TransactionStatus" => [
-            "request" => "TransactionStatusRequest",
-            "response" => "TransactionStatusResponse"
-        ],
-        "TransactionModification" => [
-            "request" => "TransactionModificationRequest",
-            "response" => "TransactionModificationResponse"
-        ],
-        "Tokenize" => [
-            "request" => "TokenizeRequest",
-            "response" => "TokenizeResponse"
-        ],
         "Authorize3DS" => [
             "request" => "auth",
             "response" => "Authorize3DSResponse"
-        ],
-        "HostedPagePreprocess" => [
-            "request" => "HostedPagePreprocessRequest",
-            "response" => "HostedPagePreprocessResponse"
-        ],
-        "HostedPageResults" => [
-            "request" => "string",
-            "response" => "HostedPageResultsResponse"
         ]
     ];
 
@@ -60,7 +36,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        print_r("</pre>");
 
         print_r("<pre>");
-        print_r($this->data);
+        print_r($this->getMessageClassName());
         print_r("</pre>");
 
         $httpResponse = $this->httpClient
@@ -73,20 +49,10 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             ], json_encode($this->data));
 
 
-////
-////
-//        print_r("<pre>");
-//        print_r($httpResponse->getBody()->getContents());
-//        print_r("</pre>");
-////
-
         switch ($httpResponse->getStatusCode()) {
             case "200":
-
                 $responseContent = $httpResponse->getBody()->getContents();
-
                 return $this->response = new Authorize3DSResponse($this, $responseContent);
-
             default:
                 throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
         }
