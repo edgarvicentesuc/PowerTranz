@@ -12,7 +12,7 @@ class Payment3DS extends AbstractRequest
 
     public function send()
     {
-        return $this->sendData($this->data);
+        return $this->sendData(array("SpiToken" => $this->data));
     }
 
 
