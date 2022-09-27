@@ -10,10 +10,8 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
 
     public function send()
     {
-        print_r($_POST);
-        //return $this->sendData($_POST);
+        return $this->sendData($_POST);
     }
-
 
     public function sendData($data)
     {
