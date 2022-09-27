@@ -19,11 +19,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     protected $data = [];
     protected $TransactionCacheDir = 'transactions/';
 
-    protected $FACServices = [
+    protected $PWTServices = [
         "Authorize3DS" => [
-            "request" => "auth",
-            "response" => "Authorize3DSResponse"
-        ]
+            "api" => "auth",
+        ],
+        "AcceptNotification" => [
+            "api" => "payment",
+        ],
     ];
 
 
@@ -36,26 +38,29 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 //        print_r("</pre>");
 
         print_r("<pre>");
-        print_r($this->getMessageClassName());
+        print_r($this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"]);
         print_r("</pre>");
 
-        $httpResponse = $this->httpClient
-            ->request("POST", $this->getEndpoint() . "auth", [
-                "Content-Type" => "application/json",
-                "Host" => "staging.ptranz.com",
-                "Accept" => "application/json",
-                "PowerTranz-PowerTranzId" => $this->getPWTId(),
-                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
-            ], json_encode($this->data));
 
+        return null;
 
-        switch ($httpResponse->getStatusCode()) {
-            case "200":
-                $responseContent = $httpResponse->getBody()->getContents();
-                return $this->response = new Authorize3DSResponse($this, $responseContent);
-            default:
-                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
-        }
+//        $httpResponse = $this->httpClient
+//            ->request("POST", $this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"], [
+//                "Content-Type" => "application/json",
+//                "Host" => "staging.ptranz.com",
+//                "Accept" => "application/json",
+//                "PowerTranz-PowerTranzId" => $this->getPWTId(),
+//                "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
+//            ], json_encode($this->data));
+//
+//
+//        switch ($httpResponse->getStatusCode()) {
+//            case "200":
+//                $responseContent = $httpResponse->getBody()->getContents();
+//                return $this->response = new Authorize3DSResponse($this, $responseContent);
+//            default:
+//                throw new GatewayHTTPException($httpResponse->getReasonPhrase(), $httpResponse->getStatusCode());
+//        }
     }
 
     public function getMessageClassName()
