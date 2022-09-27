@@ -32,7 +32,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function sendData($data)
     {
 
-        // print_r($data);
+         print_r($data);
         print_r($this->getMessageClassName() . "<br>");
         if ("Payment3DS" === $this->getMessageClassName()) {
             print_r("se muere<br>");
