@@ -15,8 +15,7 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
 
     public function sendData($data)
     {
-//        print_r($data['Response']);
-        return new ThreeDSResponse($this, $data['Response']);
+        return new ThreeDSResponse($data['Response']);
     }
 
     public function setPWTPwd($value)
