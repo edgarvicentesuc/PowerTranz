@@ -54,7 +54,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             ], json_encode($this->data));
 
         if ($this->getMessageClassName() == "Payment3DS") {
-            print_r($httpResponse->getBody()->getContents());
+            print_r($httpResponse->getBody());
             die();
         }
 
