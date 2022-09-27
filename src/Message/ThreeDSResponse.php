@@ -72,7 +72,7 @@ class ThreeDSResponse extends AbstractResponse
 
     public function getResponseCode()
     {
-        return $this->queryData("ResponseCode", "ThreeDSecure", "RiskManagement");
+        return $this->queryData("Eci", "ThreeDSecure", "RiskManagement");
     }
 
 
