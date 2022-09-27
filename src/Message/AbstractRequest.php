@@ -33,15 +33,15 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 
     public function sendData($data)
     {
-        if ($this->getMessageClassName() == "Payment3DS") {
-            $this->data = $data;
-
-            print_r($this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"] . "<br>");
-            print_r($this->getPWTId() . "<br>");
-            print_r($this->getPWTPwd() . "<br>");
-            print_r(json_encode($this->data) . "<br>");
-            die();
-        }
+//        if ($this->getMessageClassName() == "Payment3DS") {
+//            $this->data = $data;
+//
+//            print_r($this->getEndpoint() . $this->PWTServices[$this->getMessageClassName()]["api"] . "<br>");
+//            print_r($this->getPWTId() . "<br>");
+//            print_r($this->getPWTPwd() . "<br>");
+//            print_r(json_encode($this->data) . "<br>");
+//            die();
+//        }
 
 
         $httpResponse = $this->httpClient
@@ -53,7 +53,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
                 "PowerTranz-PowerTranzPassword" => $this->getPWTPwd(),
             ], json_encode($this->data));
 
-        if ($this->getMessageClassName() == "Payment3DSResponse") {
+        if ($this->getMessageClassName() == "Payment3DS") {
             print_r($httpResponse);
             die();
         }
