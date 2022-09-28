@@ -55,15 +55,7 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
         return $this->getParameter("ResponseCode");
     }
 
-    public function setResponseMessage($value)
-    {
-        return $this->setParameter("ResponseMessage", $value);
-    }
 
-    public function getResponseMessage()
-    {
-        return $this->getParameter("ResponseMessage");
-    }
 
     public function setReasonCode($value)
     {
