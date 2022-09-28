@@ -46,6 +46,7 @@ class Authorize3DSResponse extends AbstractResponse implements RedirectResponseI
         return $this;
     }
 
+
     /**
      * To be removed.
      * Use redirect() method instead.

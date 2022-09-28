@@ -13,6 +13,7 @@ class AcceptNotification extends AbstractRequest implements NotificationInterfac
         return $this->sendData($_POST);
     }
 
+
     public function sendData($data)
     {
         return new ThreeDSResponse($data['Response']);

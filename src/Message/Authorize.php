@@ -45,40 +45,6 @@ class Authorize extends AbstractRequest
     const PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR = "ChallengeIndicator";
 
 
-    protected $TransactionDetailsRequirement = [
-        self::PARAM_TRANSACTION_IDENTIFIER => ["R", 0, 150],
-        self::PARAM_TOTAL_AMOUNT => ["R", 0, 4],
-        self::PARAM_CURRENCY_CODE => ["R", 0, 12],
-        self::PARAM_THREEDSECURE => ["R", 0, 3],
-        self::PARAM_ORDER_IDENTIFIER => ["R", 0, 4],
-        self::PARAM_ADDRESS_MATCH => ["O", 0, 256]
-    ];
-
-    protected $CardDetailsRequirement = [
-        self::PARAM_SOURCE_NUMBER => ["R", 0, 19],
-        self::PARAM_SOURCE_EXPIRY_DATE => ["R", 0, 4],
-        self::PARAM_SOURCE_CVV2 => ["R", 0, 4],
-        self::PARAM_SOURCE_HOLDER_NAME => ["C", 0, 2],
-    ];
-
-    protected $BillingDetailsRequirement = [
-        self::PARAM_BILLING_ADDRESS_FIRSTNAME => ["O", 0, 30],
-        self::PARAM_BILLING_ADDRESS_LASTNAME => ["O", 0, 30],
-        self::PARAM_BILLING_ADDRESS_ADDRESS1 => ["R", 0, 50],
-        self::PARAM_BILLING_ADDRESS_ADDRESS2 => ["O", 0, 50],
-        self::PARAM_BILLING_ADDRESS_CITY => ["O", 0, 30],
-        self::PARAM_BILLING_ADDRESS_STATE => ["O", 0, 5],
-        self::PARAM_BILLING_ADDRESS_ZIP => ["R", 0, 10],
-        self::PARAM_BILLING_ADDRESS_COUNTRY => ["O", 0, 3],
-        self::PARAM_BILLING_ADDRESS_TELEPHONE => ["O", 0, 20],
-        self::PARAM_BILLING_ADDRESS_EMAIL => ["O", 0, 50]
-    ];
-
-
-    protected $ExtendedData3DSecure = [
-        self::PARAM_EXTENDED_DATA_THREEDSECURE_WINDOWS_SIZE => ["R", 0, 30],
-        self::PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR => ["O", 0, 30],
-    ];
 
 
     protected $TransactionDetails = [];
@@ -94,6 +60,7 @@ class Authorize extends AbstractRequest
         $ThreedSecure[self::PARAM_EXTENDED_DATA_THREEDSECURE_INDICATOR] = "01";
 
         $this->data[self::MESSAGE_PART_EXTENDED_DATA][self::PARAM_EXTENDED_DATA_THREEDSECURE] = $ThreedSecure;
+
 
         return $this->data;
     }
