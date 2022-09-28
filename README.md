@@ -28,8 +28,8 @@ use Omnipay\Omnipay;
 try {
     $gateway = Omnipay::create('PowerTranz_PWT');
     $gateway
-        ->setTestMode(true)
-        ->setPWTId('xxxxxxxx')
+        ->setTestMode(true)  // false to use productions links  , true to use test links 
+        ->setPWTId('xxxxxxxx') 
         ->setPWTPwd('xxxxxxxx')
         // **Required and must be https://
         ->setMerchantResponseURL('https://localhost/accept-notification.php')
@@ -37,28 +37,28 @@ try {
         ->setOrderNumberAutoGen(true);
 
     $cardData = [
-        'number' => '4111111111111111',
-        'expiryMonth' => '01',
-        'expiryYear' => '2025',
-        'cvv' => '123',
-        'firstName' => 'Jonh',
-        'LastName' => 'Doe',
-        'email' => "johDoe@gmail.com",
-        'Address1' => 'main Avenue',
-        'Address2' => 'Main Avenue',
-        'City' => 'Guatemala',
-        'State' => 'GT',
-        'Postcode' => '',
-        'Country' => 'GTQ', 
-        'Phone' => '',
+        'number' => '4111111111111111', //Mandatory
+        'expiryMonth' => '01', //Mandatory
+        'expiryYear' => '2025',  ///Mandatory
+        'cvv' => '123',   //Mandatory
+        'firstName' => 'Jonh', //Mandatory
+        'LastName' => 'Doe',   //Mandatory
+        'email' => "johDoe@gmail.com", //optional
+        'Address1' => 'main Avenue', // optional
+        'Address2' => 'Main Avenue', // optional
+        'City' => 'Guatemala', // Mandatory
+        'State' => 'GT',   //Mandatory
+        'Postcode' => '',  //Optional
+        'Country' => 'GTQ',   //Mandatory GTQ
+        'Phone' => '',  // Optional
     ];
 
     $transactionData = [
         'card' => $cardData,
-        'currency' => 'GTQ',
-        'amount' => '1.00',
+        'currency' => 'GTQ',  // Mandatory  GTQ
+        'amount' => '1.00',   // Mandatory
         ///'TransactionId' => '2100001',  // is mandatory is setOrderNumberAutoGen is false
-        "AddressMatch" => "false"
+        "AddressMatch" => "false"   //Optional  
     ];
 
     $response = $gateway->authorize($transactionData)->send();
@@ -91,11 +91,12 @@ $response = $gateway->acceptNotification($_POST)->send();
 
 if($response->isSuccessful())
 {       
-    // Purchase was succussful, continue purchase the payment    
+    // authorize was succussful, continue purchase the payment    
      $paymentResponse = $gateway->purchase($response->getSpiToken())->send();
     
-    //return a JSON with response  
+    //return a JSON with response    //Aproveed = true means payment successfull 
     print_r($paymentResponse->getData());
+    
 }
 else 
 {
